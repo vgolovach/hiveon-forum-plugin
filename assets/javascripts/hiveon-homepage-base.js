@@ -36,7 +36,7 @@ var renderTopicList = function (type, parentDomId, json) {
   }
 
   var renderTopicTitle = function (topic) {
-    return "<h4 class='hive-topic__title'>" +
+    return "<h4 class='hiveon-topic__title'>" +
       "<a href='/t/" + topic.slug + "/" + topic.id + "'>" + topic.title + "</a>" +
     "</h4>";
   }
@@ -69,17 +69,17 @@ var renderTopicList = function (type, parentDomId, json) {
       return posters;
     }
 
-    return "<div class='hive-topic'>" +
-      "<div class='hive-topic__col hive-topic__col--title'>" +
+    return "<div class='hiveon-topic'>" +
+      "<div class='hiveon-topic__col hiveon-topic__col--title'>" +
         renderTopicTitle(topic) +
-        "<div class='hive-topic__tags'>" +
+        "<div class='hiveon-topic__tags'>" +
           renderTopicTags(topic) +
         "</div>" +
       "</div>" +
-      "<div class='hive-topic__col hive-topic__col--posters'>" +
+      "<div class='hiveon-topic__col hiveon-topic__col--posters'>" +
         renderTopicPosters() +
       "</div>" +
-      "<div class='hive-topic__col hive-topic__col--age'>" +
+      "<div class='hiveon-topic__col hiveon-topic__col--age'>" +
         renderTopicAge(topic) +
       "</div>" +
     "</div>";
@@ -92,7 +92,7 @@ var renderTopicList = function (type, parentDomId, json) {
       poster = topic.posters[0];
       json.users.forEach(function(user) {
         if (poster.user_id == user.id) {
-          poster = "<a href='/u/" + user.username + "' class='hive-topic__avatar'>" +
+          poster = "<a href='/u/" + user.username + "' class='hiveon-topic__avatar'>" +
             "<img alt='" + user.username + "' src='" + user.avatar_template.replace('{size}','370') + "' class='avatar'>" +
           "</a>"
         }
@@ -100,23 +100,23 @@ var renderTopicList = function (type, parentDomId, json) {
       return poster;
     }
 
-    return "<div class='hive-topic'>" +
-      "<div class='hive-row  hive-row--main'>" +
-        "<div class='hive-topic__col hive-topic__col--avatar'>" +
+    return "<div class='hiveon-topic'>" +
+      "<div class='hiveon-row  hiveon-row--main'>" +
+        "<div class='hiveon-topic__col hiveon-topic__col--avatar'>" +
           renderTopicOriginalPoster() +
         "</div>" +
-        "<div class='hive-topic__col hive-topic__col--title'>" +
+        "<div class='hiveon-topic__col hiveon-topic__col--title'>" +
           renderTopicTitle(topic) +
-          "<div class='hive-topic__tags'>" +
+          "<div class='hiveon-topic__tags'>" +
             renderTopicTags(topic) +
           "</div>" +
         "</div>" +
       "</div>" +
-      "<div class='hive-row  hive-row--info'>" +
-        "<div class='hive-topic__age'>" +
+      "<div class='hiveon-row  hiveon-row--info'>" +
+        "<div class='hiveon-topic__age'>" +
           renderTopicAge(topic) +
         "</div>" +
-        "<div class='hive-topic__info'>" +
+        "<div class='hiveon-topic__info'>" +
           "<span class='comments'><i class='fa fa-comments'></i>" + topic.reply_count + "</span>" +
           "<span class='reviews'><i class='fa fa-eye'></i>" + topic.views + "</span>" +
         "</div>" +
@@ -127,19 +127,19 @@ var renderTopicList = function (type, parentDomId, json) {
   renderCategory = function (category) {
 
     var renderCatTitle = function (category) {
-      return "<h4 class='hive-topic__title'>" +
+      return "<h4 class='hiveon-topic__title'>" +
         "<a href='/c/" + category.slug + "/" + category.id + "'>" + category.name + "</a>" +
       "</h4>";
     }
 
-    return "<div class='hive-topic'>" +
-      "<div class='hive-topic__col hive-topic__col--title'>" +
+    return "<div class='hiveon-topic'>" +
+      "<div class='hiveon-topic__col hiveon-topic__col--title'>" +
         renderCatTitle(category) +
-        "<div class='hive-topic__desc'>" +
+        "<div class='hiveon-topic__desc'>" +
           category.description +
         "</div>" +
       "</div>" +
-      "<div class='hive-topic__col   hive-topic__col--count'>" +
+      "<div class='hiveon-topic__col   hiveon-topic__col--count'>" +
         category.topic_count +
       "</div>" +
     "</div>";
@@ -182,19 +182,22 @@ var renderTopicList = function (type, parentDomId, json) {
 
 $(function() {
 
-  var contentToLoad = ['hot', 'categories', 'latest'];
+  $('body').addClass('docked');
+
+  //var contentToLoad = ['hot', 'categories', 'latest'];
+  var contentToLoad = ['hot', 'categories'];
   var loadedContent = [];
 
   var checkBlockAvailability = function () {
     if (loadedContent.length == contentToLoad.length) {
-      $('#hive-outlet').addClass('ready');
+      $('#hiveon-outlet').addClass('ready');
     }
   }
 
   var getTopicList = function (type) {
     $.getJSON( type )
       .done(function( json ) {
-        renderTopicList(type, "#hive-topic-list--" + type, json);
+        renderTopicList(type, "#hiveon-topic-list--" + type, json);
         loadedContent.push(type);
         checkBlockAvailability();
       })
@@ -204,10 +207,10 @@ $(function() {
     });
   };
 
-  var hive = $('#hive-outlet');
+  var hiveon = $('#hiveon-outlet');
 
-  if (hive) {
-    hive.removeClass('hidden');
+  if (hiveon) {
+    hiveon.removeClass('hidden');
     contentToLoad.forEach(function(contentType) {
       getTopicList(contentType);
     });

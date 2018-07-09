@@ -1,13 +1,13 @@
 plugins:
-  hive_homepage_enabled:
+  hiveon_homepage_enabled:
     default: true
     client: true
-  hive_homepage_img_url:
-    default: '/images/hive-intro.svg'
+  hiveon_homepage_img_url:
+    default: 'https://simple-storage.sgp1.digitaloceanspaces.com/intro2.svg'
     client: true
-  hive_homepage_header_title:
+  hiveon_homepage_header_title:
     default: 'Online community with'
     client: true
-  hive_homepage_header_text:
+  hiveon_homepage_header_text:
     default: 'Swap tips and ideas with your peers to build community for your members, your company, and your career'
     client: true

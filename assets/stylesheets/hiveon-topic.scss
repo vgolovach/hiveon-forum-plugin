@@ -1,13 +1,13 @@
-.hive-topic-list {
+.hiveon-topic-list {
   // text-align: right;
-  .hive-row {
+  .hiveon-row {
     display: flex;
   }
-  .hive-topic {
+  .hiveon-topic {
     display: flex;
     position: relative;
     padding: 12px 5px 12px 0;
-    border-bottom: 1px solid rgba($hive-white-color, 0.2);
+    border-bottom: 1px solid rgba($hiveon-white-color, 0.2);
     justify-content: flex-end;
 
     h4 a {
@@ -16,9 +16,9 @@
 
     &:last-child { border-bottom: none; }
 
-    .hive-topic__col {
+    .hiveon-topic__col {
       display: flex;
-      padding: 0 10px;
+      padding: 0;
       align-items: center;
       &--title {
         flex-direction: column;
@@ -39,7 +39,7 @@
       }
 
       &--age, &--count {
-        color: rgba($hive-white-color, .5);
+        color: rgba($hiveon-white-color, .5);
       }
 
 
@@ -54,9 +54,9 @@
       a {
         font-size: 16px;
         font-weight: 600;
-        color: $hive-white-color;
+        color: $hiveon-white-color;
         &:hover {
-          color: $hive-primary-color;
+          color: $hiveon-primary-color;
           transition: color 0.1s ease-in;
         }
       }
@@ -65,12 +65,12 @@
 
     &__tags, &__desc {
       text-align: left;
-      color: rgba($hive-white-color, .65);
+      color: rgba($hiveon-white-color, .65);
       font-weight: 100;
       padding: 6px 0;
       &:hover {
         &, a {
-          color: rgba($hive-white-color, 1);
+          color: rgba($hiveon-white-color, 1);
         }
       }
     }
@@ -80,51 +80,52 @@
     }
 
     &__age {
-      display: inline-block;
+      display: block;
       vertical-align: middle;
-      width: 100%;
-      text-align: center;
-      color: rgba($hive-white-color, .55);
+      white-space: nowrap;
+      width: 50px;
+      text-align: right;
+      color: rgba($hiveon-white-color, .55);
     }
 
   }
 }
 
-.hive-topic-list--latest {
+.hiveon-help-list
+
+.hiveon-help-this-people {
   .wrap {
-    display: block;
+    display: flex;
   }
 
-  .hive-topic {
-    display: inline-block;
-    flex-direction: column;
-    justify-content: flex-start;
+  .hiveon-topic {
+    flex: 1;
     border-bottom: none;
     position: relative;
     width: 500px;
     height: 200px;
-    background: $hive-gray-color;
+    background: $hiveon-gray-color;
     border-radius: 10px;
     padding: 25px;
     margin: 20px;
     overflow: hidden;
 
     &:hover {
-      color: $hive-gray-color;
+      color: $hiveon-gray-color;
       background: linear-gradient(
         160deg,
-        $hive-primary-helper-color 0%,
-        $hive-primary-color 100%
+        $hiveon-primary-helper-color 0%,
+        $hiveon-primary-color 100%
       );
       a {
-        color: $hive-gray-color;
+        color: $hiveon-gray-color;
         &:hover {
           color: black;
         }
       }
-      .hive-topic {
+      .hiveon-topic {
         &__tags, &__age, &__info span {
-          color: $hive-gray-color;
+          color: $hiveon-gray-color;
         }
         &__age {
           text-align: left;
@@ -132,11 +133,11 @@
       }
     }
 
-    .hive-row--main {
+    .hiveon-row--main {
       height: 100%;
     }
 
-    .hive-row--info {
+    .hiveon-row--info {
       justify-content: space-between;
     }
 
@@ -144,7 +145,7 @@
       width: 100%;
       text-align: right;
       span {
-        color: rgba($hive-white-color, .5);
+        color: rgba($hiveon-white-color, .5);
         margin-right: 10px;
         &:last-child { margin-right: 0px}
         i {
@@ -153,7 +154,7 @@
       }
     }
 
-    .hive-topic__col {
+    .hiveon-topic__col {
       &--avatar {
         align-items: center;
         flex-direction: column;
