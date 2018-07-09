@@ -138,6 +138,19 @@ table.topic-list {
         border-bottom: none;
     }
 }
+@media screen and (max-width: $break-small) {
+    .topic-item-stats .pull-right{
+       float: none !important;
+       text-align: right;
+       display: block; 
+
+       .num {
+            float: none;
+            text-align: right;
+            clear: right;
+       }
+    }
+}
 
 .nav-pills>li>a {
   background-color: transparent;
@@ -152,10 +165,29 @@ table.topic-list {
     border-color: #fff;
 }
 
+.select-kit.combo-box.category-drop.box.has-selection .category-drop-header,
 .select-kit.combo-box.category-drop .category-drop-header,
 .combo-box-header.category-drop-header {
     color: #FFF;
     box-shadow: 0 2px 4px rgba(0,0,0, 0.35);
     padding: 5px 5px 7px 10px;
     border-radius: 3px;
+    @media screen and (max-width: $break-small) {
+        border-radius: 2px;
+        padding: 4px 5px 5px 10px;
+        .badge-category-bg {
+            display: none;
+        }
+
+        .badge-category {
+            padding-left: 0;
+            font-weight: 600;
+        }
+    }
+}
+
+.list-controls .combo-box .combo-box-header {
+    @media screen and (max-width: $break-small) {
+        
+    }
 }
