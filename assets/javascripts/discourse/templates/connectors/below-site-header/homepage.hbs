@@ -8,7 +8,7 @@
               <p>{{ siteSettings.hiveon_homepage_header_text }}</p>
               {{#if currentUser}}
               {{else}}
-                <a href="/signup" class="hiveon-btn">Create account</a>
+                <a href="/signup" class="sign-up-button hiveon-btn signup">Create account</a>
               {{/if}}
             </div>
             <div class="hiveon-header__img">
@@ -19,33 +19,37 @@
     </div>
 
     <div id="hiveon-outlet" class="hive">
+      {{#unless site.mobileView}}
 
       <div class="hiveon-main-row">
         <div class="wrap">
           <div class="hiveon-row">
-
             <div class="hiveon-col">
               <h3 class="hiveon-h2">Hot discussions</h3>
-              <div class="hiveon-topic-list" id="hiveon-topic-list--hot"></div>
-              <a href="/hot" class="hiveon-btn">More discussions</a>
+              <div class="hiveon-topic-list" id="hiveon-topic-list--hot">
+                {{hot-discussions}}
+              </div>
+              <a href="/hot" class="hiveon-btn right">More discussions</a>
             </div>
 
             <div class="hiveon-col">
-              <h3 class="hiveon-h2">Categories</h3>
-              <div class="hiveon-topic-list" id="hiveon-topic-list--categories"></div>
-              <a href="/categories" class="hiveon-btn">More categories</a>
+              <h3 class="hiveon-h2">Announcements</h3>
+              <div class="hiveon-topic-list">
+                {{hive-announcements}}
+              </div>
+              <a href="/u/hiveos/activity/topics" class="hiveon-btn right">More topics</a>
             </div>
           </div>
         </div>
       </div>
-      
+      {{/unless}}
       
       
       <div class="hiveon-gradient">
         <h2 class="hiveon-h3"> Can you help this people?</h2>        
         {{need-help-topics}}
       </div>
-
     </div>
+
   {{/if}}
 {{/if}}

@@ -5,12 +5,26 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.topic-map .buttons {
-    .btn {
-        border-radius: 0;
-        box-shadow: none;
-        &:hover {
+.category-list {
+    tbody {
+        border: none;
+    }
+}
+
+.topic-map {
+    border: none;
+    border-radius: 3px;
+    section {
+        border: none;
+    }
+    .buttons {
+        .btn {
+            border: none;
+            border-radius: 3px;
             box-shadow: none;
+            &:hover {
+                box-shadow: none;
+            }
         }
     }
 }
@@ -51,15 +65,21 @@ p:has(code) {
 .d-header {
   background-color: transparent;
   box-shadow: none;
-  .contents { margin: 20px 0 }
+  .contents { margin: 10px 0 }
   .wrap { max-width: 1300px }
   padding-bottom: 10px;
 
   position: fixed !important;
+
+  height: 52px;
+  .title {
+    padding: 5px 0;
+  }
+
 }
 
 .docked .d-header {
-  background-color: rgba(33, 37, 43, 0.73);
+  background-color: rgba(33, 37, 43, 0.9);
 }
 
 .hiveon {
@@ -77,6 +97,10 @@ p:has(code) {
 .topic-list {
     .topic-excerpt {
         color: rgba($hiveon-white-color, .6);
+    }
+
+    tbody {
+        border: none;
     }
 }
 
@@ -113,4 +137,25 @@ table.topic-list {
     thead tr {
         border-bottom: none;
     }
+}
+
+.nav-pills>li>a {
+  background-color: transparent;
+  border:1px solid;
+  border-color: transparent;
+  border-radius: 3px;
+  color: #fff;
+}
+.nav-pills>li>a:hover,.nav-pills>li.active>a{
+    color:#fff;
+    background-color: transparent;
+    border-color: #fff;
+}
+
+.select-kit.combo-box.category-drop .category-drop-header,
+.combo-box-header.category-drop-header {
+    color: #FFF;
+    box-shadow: 0 2px 4px rgba(0,0,0, 0.35);
+    padding: 5px 5px 7px 10px;
+    border-radius: 3px;
 }

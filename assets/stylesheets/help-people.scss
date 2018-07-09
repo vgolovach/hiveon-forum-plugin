@@ -4,6 +4,13 @@
     flex-flow: row wrap;
     padding: 20px 40px;
 
+    @media screen and (max-width: $break-small) {
+        padding: 0px 10px;
+    }
+    
+    @media screen and (max-width: $break-mobile) {
+        padding: 0px 10px;
+    }
     // opacity: 0;
 
     &.ready {
@@ -21,6 +28,10 @@
         box-shadow: 0 4px 16px rgba(0,0,0, 0.35);
         margin: 10px 10px;
 
+        @media screen and (max-width: $break-small) {
+            flex: 1 1 auto;
+        }
+        
         transition: box-shadow .25s linear;
         &:hover {
             box-shadow: 0 4px 16px rgba(0,0,0, 0.8);
@@ -56,6 +67,8 @@
     }
     .top {
         display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
         padding: 6px 0 0;
         .category {
             flex: 1;

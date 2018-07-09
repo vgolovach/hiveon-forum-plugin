@@ -1,18 +1,37 @@
 .hiveon-topic-list {
   // text-align: right;
-  .hiveon-row {
-    display: flex;
+  .hiveon-topic-row {
+    display: block;
+    &.flex {
+      .wrapper {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+      }
+    }
   }
   .hiveon-topic {
-    display: flex;
     position: relative;
-    padding: 12px 5px 12px 0;
-    border-bottom: 1px solid rgba($hiveon-white-color, 0.2);
-    justify-content: flex-end;
+    padding: 6px 6px 6px 12px;
+    margin-bottom: 3px;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.25);
 
-    h4 a {
-      font-size: 18px;
+    background-color: $hiveon-dark-light;
+
+    @media screen and (max-width: $break-small) {
+      flex: auto;
     }
+    
+
+    .hiveon-topic-col {
+      h4 a {
+        font-size: 18px;
+        color: $hiveon-white-color;
+      }
+
+    }
+
 
     &:last-child { border-bottom: none; }
 
@@ -177,4 +196,9 @@
     }
 
   }
+}
+
+
+.hiveon-topic-list {
+
 }

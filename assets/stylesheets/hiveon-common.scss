@@ -64,7 +64,7 @@
   );
 
   padding: 100px 0 50px 0;
-  margin-top: 80px;
+  margin-top: 20px;
 
   .hiveon-h3 {
     position: absolute;
@@ -76,7 +76,11 @@
   @media screen and (max-width: $break-mobile) {
     padding: 10px 0;
   }
-
+  
+  @media screen and (max-width: $break-small) {
+    padding-bottom: 0;
+    margin-top: 0;
+  }
 }
 
 .hiveon-main-row {

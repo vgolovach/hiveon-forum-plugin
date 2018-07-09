@@ -1,40 +1,28 @@
 import { ajax } from 'discourse/lib/ajax';
+
 import {
-  default as computed,
-  on,
-  observes
+    on
 } from "ember-addons/ember-computed-decorators";
 
 export default Ember.Service.extend({
-    items: null,
+    topics: null,
     categories: Ember.inject.service(),
-
-    // init() {
-    //     this._super(...arguments);
-    //     this.set(items, []);
-
-    //     this.getItems();
-    // }
 
     @on('init')
     onInit() {
         var self = this;
         this.get('categories').getCategories().then(function() {
-            self.getItems();
+            self.getTopics();
         });
     },
 
-    getItems() {
-  
-        ajax("/latest.json", {
-        data: { order: 'posts',
-                ascending: true
-            }
-        }).then(result => {
-            let self = this;
+    getTopics() {
 
+        ajax("/top.json").then(result => {
+            let self = this;
             let categories = self.get('categories').categories.category_list.categories;
-            let topics = result.topic_list.topics.slice(0,8).map(obj => {
+
+            let topics = result.topic_list.topics.slice(0,6).map(obj => {
                     let slug = obj.slug || "";
                     
                     if (slug.trim().length === 0) {
@@ -45,6 +33,12 @@ export default Ember.Service.extend({
                         return u.id == obj.posters[0].user_id;
                     });
 
+                    obj.users = obj.posters.map(poster => {
+                        return result.users.find(u => {
+                                return u.id == poster.user_id;
+                            });
+                    });
+
                     obj.user.avatar_template = obj.user.avatar_template.replace('{size}','370');
 
                     obj.category = categories.find(c => {
@@ -52,24 +46,7 @@ export default Ember.Service.extend({
                     });
                     return obj;
             });
-
-            this.set('items', topics);
+          this.set('topics', topics);  
         });
     }
-
-});
-
-
-
-
-
-        //             needHelpTopics() {
-        //                 ajax("/latest.json", {
-        //                 data: { order: 'posts',
-        //                         ascending: true
-        //                     }
-        //                 }).then(result => {
-        //                     this.set('model', topic_lists.topics);
-        //                 });
-
-        //             }
+})

@@ -1,5 +1,6 @@
 a.hiveon-btn, .hiveon-btn {
-  margin: 40px 0;
+  margin: 20px 0;
+
   display: inline-block;
   border-radius: 6px;
   padding: 15px;
@@ -15,5 +16,12 @@ a.hiveon-btn, .hiveon-btn {
     opacity: 1;
     box-shadow: 0 2px 12px rgba(0,0,0, 0.6);
     transition: box-shadow .25s linear;
+  }
+  
+  &.right {
+    float: right;
+  }
+  &.signup {
+    font-size: 16px;
   }
 }

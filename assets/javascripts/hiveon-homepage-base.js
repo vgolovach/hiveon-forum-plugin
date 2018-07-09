@@ -182,38 +182,36 @@ var renderTopicList = function (type, parentDomId, json) {
 
 $(function() {
 
-  $('body').addClass('docked');
-
   //var contentToLoad = ['hot', 'categories', 'latest'];
-  var contentToLoad = ['hot', 'categories'];
-  var loadedContent = [];
+  // var contentToLoad = ['hot', 'categories'];
+  // var loadedContent = [];
 
-  var checkBlockAvailability = function () {
-    if (loadedContent.length == contentToLoad.length) {
-      $('#hiveon-outlet').addClass('ready');
-    }
-  }
+  // var checkBlockAvailability = function () {
+  //   if (loadedContent.length == contentToLoad.length) {
+  //     $('#hiveon-outlet').addClass('ready');
+  //   }
+  // }
 
-  var getTopicList = function (type) {
-    $.getJSON( type )
-      .done(function( json ) {
-        renderTopicList(type, "#hiveon-topic-list--" + type, json);
-        loadedContent.push(type);
-        checkBlockAvailability();
-      })
-      .fail(function( jqxhr, textStatus, error ) {
-        var err = textStatus + ", " + error;
-        console.log( "Request Failed: " + err );
-    });
-  };
+  // var getTopicList = function (type) {
+  //   $.getJSON( type )
+  //     .done(function( json ) {
+  //       renderTopicList(type, "#hiveon-topic-list--" + type, json);
+  //       loadedContent.push(type);
+  //       checkBlockAvailability();
+  //     })
+  //     .fail(function( jqxhr, textStatus, error ) {
+  //       var err = textStatus + ", " + error;
+  //       console.log( "Request Failed: " + err );
+  //   });
+  // };
 
-  var hiveon = $('#hiveon-outlet');
+  // var hiveon = $('#hiveon-outlet');
 
-  if (hiveon) {
-    hiveon.removeClass('hidden');
-    contentToLoad.forEach(function(contentType) {
-      getTopicList(contentType);
-    });
-  }
+  // if (hiveon) {
+  //   hiveon.removeClass('hidden');
+  //   contentToLoad.forEach(function(contentType) {
+  //     getTopicList(contentType);
+  //   });
+  // }
 
 });
