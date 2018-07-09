@@ -188,6 +188,12 @@ table.topic-list {
 
 .list-controls .combo-box .combo-box-header {
     @media screen and (max-width: $break-small) {
-        
+
     }
+}
+
+.nav-pills>li>a.active {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
 }
