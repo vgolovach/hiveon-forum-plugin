@@ -34,10 +34,12 @@ export default Ember.Service.extend({
                     });
 
                     obj.users = obj.posters.map(poster => {
-                        poster.avatar_template = poster.avatar_template.replace('{size}','370');
-                        return result.users.find(u => {
+                        
+                        let posterUser = result.users.find(u => {
                                 return u.id == poster.user_id;
                             });
+                        posterUser.avatar_template = posterUser.avatar_template.replace('{size}','370');
+                        return posterUser;
                     });
 
                     obj.user.avatar_template = obj.user.avatar_template.replace('{size}','370');
